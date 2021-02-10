@@ -1,7 +1,21 @@
-#Header{
+.Header{
+    display: flex;
+    justify-content: space-between;
+    
     background-color: black;
     padding : 15px;
-    text-align: right;
+    
     padding-left: 30px;
     padding-right: 30px;
 }
+
+
+.appLogo {
+    animation: app-logo-spin infinite .5s linear;
+    height: 35px;
+    background: #ff7f7f;
+ }
+ 
+ @keyframes app-logo-spin {
+    from { transform: scaleX(-1); }
+ }
