@@ -2,11 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import Home from './screens/home/Home';
+import Header from './common/header/Header';
 // import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <div>Hello
-    <Home/>
+  <div>
+    <Header/>
   </div>,
   document.getElementById('root')
 );
