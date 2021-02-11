@@ -4,6 +4,8 @@ import './index.css';
 import Home from './screens/home/Home';
 import Header from './common/header/Header';
 // import reportWebVitals from './reportWebVitals';
+import 'typeface-roboto';
+
 
 ReactDOM.render(
   <div>
