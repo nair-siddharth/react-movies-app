@@ -11,7 +11,6 @@
 
 
 .appLogo {
-    
     height: 40px;
     background: #ff7f7f;
  }
@@ -32,21 +31,32 @@
     /*scaleX(-1) scaleY(-1)*/
  }
 
-
 .loginModal{
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   background-color: rgb(255, 250, 241);
+   box-shadow: 2px 5px 5px lightgray;
+   padding: 20px;
+   outline: 0;
+}
+
+.log3inModal{
    width: auto;
-   height: 200px;
+   height: auto;
    outline: 0;
    margin:0 auto;
    display:table;
    position: relative;
    left: 0;
    right:0;
-   top: 30%;
+   top: 20%;
    padding: 20px;
 
    background-color: rgb(255, 250, 241);
    box-shadow: 2px 5px 5px lightgray;
+   /* transform: translate(-50%, -50%); */
    /* border-color: white; */
    /* border:1px solid; */
    /* text-align: right; */
@@ -56,6 +66,7 @@
    -o-transform:translateY(-50%);
    transform:translateY(-50%); */
 }
+
 
 .form{
    display: flex;

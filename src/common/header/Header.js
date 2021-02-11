@@ -12,6 +12,8 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import { Typography } from '@material-ui/core';
 
+import PropTypes from 'prop-types'; // This throws a warning if a validation put on a section is not followed. 
+                                    // Here, we wil put a requirement of ensuring TabContainer has children
 
 const TabContainer = function(props){
     return (
@@ -21,6 +23,9 @@ const TabContainer = function(props){
     );
 }
 
+TabContainer.propTypes = {
+    children : PropTypes.node.isRequired
+}
 
 class Header extends Component{
 
@@ -79,8 +84,15 @@ class Header extends Component{
                     <Tabs value = {this.state.value}>
                         <Tab label = "Login" onClick = {this.selectedTab(0).bind(this)} ></Tab>
                         <Tab label = "Register" onClick = {this.selectedTab(1).bind(this)}></Tab>
+                        <Tab label = "Register2" onClick = {this.selectedTab(2).bind(this)}></Tab>{/*This throws a warning*/}
                     </Tabs>
 
+                    {this.state.value===2 &&/* This has no children, and will cause a warning because of PropTypes */
+                    <TabContainer>
+                    </TabContainer>}
+
+
+                    {this.state.value === 0 && /*If vlaue = 0, then render the following*/ 
                     <TabContainer >
                         <br/>
                         <FormControl required>
@@ -95,7 +107,40 @@ class Header extends Component{
                         <br/><br/>
                         <Button variant = 'contained' color = "primary" className = 'submitBtn'>Login</Button>
 
-                    </TabContainer>
+                    </TabContainer>}
+
+
+                    {this.state.value === 1 && /*If vlaue = 0, then render the following*/ 
+                    <TabContainer >
+                        <br/>
+                        <FormControl required>
+                            <InputLabel className = 'formContents' htmlFor = 'Name' >Name</InputLabel>
+                            <Input type = 'text' id = 'Name' className = 'formContents'/>
+                        </FormControl>
+                        <br/>
+                        <FormControl required>
+                            <InputLabel className = 'formContents' htmlFor = 'Email' >Email ID</InputLabel>
+                            <Input type = 'email' id = 'Email' className = 'formContents'/>
+                        </FormControl>
+                        <br/>
+                        <FormControl required>
+                            <InputLabel htmlFor = 'userName' className = 'formContents'>Username</InputLabel>
+                            <Input type = 'text' id = 'userName' className = 'formContents'/>
+                        </FormControl>
+                        <br/>
+                        <FormControl required>
+                            <InputLabel className = 'formContents' htmlFor = 'Password' >Password</InputLabel>
+                            <Input type = 'password' id = 'Password' className = 'formContents'/>
+                        </FormControl>
+                        <br/>
+                        <FormControl required>
+                            <InputLabel className = 'formContents' htmlFor = 'ConfPassword' >Confirm Password</InputLabel>
+                            <Input type = 'password' id = 'ConfPassword' className = 'formContents'/>
+                        </FormControl>
+                        <br/><br/>
+                        <Button variant = 'contained' color = "primary" className = 'submitBtn'>Register</Button>
+
+                    </TabContainer>}
 
                 </Modal>
 
