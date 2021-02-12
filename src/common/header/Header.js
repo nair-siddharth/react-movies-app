@@ -222,7 +222,11 @@ class Header extends Component{
                     <Tabs value = {this.state.value}>
                         <Tab label = "Login" onClick = {this.selectedTab(0).bind(this)} ></Tab>
                         <Tab label = "Register" onClick = {this.selectedTab(1).bind(this)}></Tab>
-                        <Tab label = "Register2" onClick = {this.selectedTab(2).bind(this)}></Tab>{/*This throws a warning*/}
+                        
+                        {/*This throws a warning
+                         <Tab label = "Register2" onClick = {this.selectedTab(2).bind(this)}></Tab>
+                         */}
+                         
                     </Tabs>
 
                     {this.state.value===2 &&/* This has no children, and will cause a warning because of PropTypes */

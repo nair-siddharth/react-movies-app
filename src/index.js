@@ -6,10 +6,9 @@ import Header from './common/header/Header';
 // import reportWebVitals from './reportWebVitals';
 import 'typeface-roboto';
 
-
 ReactDOM.render(
   <div>
-    <Header/>
+    <Home/>
   </div>,
   document.getElementById('root')
 );
