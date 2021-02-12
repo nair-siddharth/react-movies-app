@@ -88,3 +88,12 @@
    width: 50%;
    align-self: center;
 }
+
+
+.displayNone{
+   display: none;
+}
+
+.displayText{
+   display: inline;
+}

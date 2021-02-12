@@ -11,6 +11,7 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import { Typography } from '@material-ui/core';
+import { FormHelperText } from '@material-ui/core';
 
 import PropTypes from 'prop-types'; // This throws a warning if a validation put on a section is not followed. 
                                     // Here, we wil put a requirement of ensuring TabContainer has children
@@ -33,7 +34,11 @@ class Header extends Component{
         super();
         this.state = {
             modalIsOpen:false,
-            value:0 // 0 = First tab, 1 = second tab, etc.
+            value:0, // 0 = First tab, 1 = second tab, etc.
+            userNameRequired: 'displayNone',// used to hide formHelperText
+            username:'',// Stores username
+            passwordRequired:'displayNone',
+            password:'',
         };
     }
 
@@ -43,7 +48,9 @@ class Header extends Component{
             //alert('modal about to open');
             this.setState({modalIsOpen:true});
         }else{
-            //alert('modal about to close');
+            // alert('modal about to close');
+            this.setState({userNameRequired:'displayNone'});
+            this.setState({passwordRequired:'displayNone'});
             this.setState({modalIsOpen:false});
         }
         
@@ -55,7 +62,39 @@ class Header extends Component{
         return function(){
             this.setState({value:valueSel});
         }
-    };
+    }
+
+    userNameEmpty(){
+        
+        return function(){
+            if(this.state.username === ''){
+                this.setState({userNameRequired:'displayText'});
+            }
+            if(this.state.password===''){
+                this.setState({passwordRequired:'displayText'});
+            }else{
+                console.log('login proceed - 1');
+            }
+        }
+    }
+
+    setPasswordInState = (e) => {
+        if(e.target.value===''){
+            this.setState({passwordRequired:'displayText'});
+        }else{
+            this.setState({passwordRequired:'displayNone'});
+        }
+        this.setState({password:e.target.value});
+    }
+
+    setUserNameInState = (e) => {
+        if(e.target.value===''){
+            this.setState({userNameRequired:'displayText'});
+        }else{
+            this.setState({userNameRequired:'displayNone'});
+        }
+        this.setState({username:e.target.value});
+    }
 
     render(){
         return (
@@ -96,21 +135,24 @@ class Header extends Component{
                     <TabContainer >
                         <br/>
                         <FormControl required>
-                            <InputLabel htmlFor = 'userName' className = 'formContents'>Username</InputLabel>
-                            <Input type = 'text' id = 'userName' className = 'formContents'/>
+                            <InputLabel htmlFor = 'username' className = 'formContents'>Username</InputLabel>
+                            <Input type = 'text' id = 'username' className = 'formContents' onChange = {this.setUserNameInState}/>
+                            <FormHelperText className = {this.state.userNameRequired}>required</FormHelperText>
                         </FormControl>
                         <br/>
                         <FormControl required>
                             <InputLabel className = 'formContents' htmlFor = 'Password' >Password</InputLabel>
-                            <Input type = 'password' id = 'Password' className = 'formContents'/>
+                            <Input type = 'password' id = 'Password' className = 'formContents' onChange = {this.setPasswordInState}/>
+                            <FormHelperText className = {this.state.passwordRequired}>password cannot be empty</FormHelperText>
                         </FormControl>
                         <br/><br/>
-                        <Button variant = 'contained' color = "primary" className = 'submitBtn'>Login</Button>
+                        <Button variant = 'contained' color = "primary" className = 'submitBtn'
+                        onClick = {this.userNameEmpty().bind(this)}>Login</Button>
 
                     </TabContainer>}
 
 
-                    {this.state.value === 1 && /*If vlaue = 0, then render the following*/ 
+                    {this.state.value === 1 && /*If vlaue = 1, then render the following*/ 
                     <TabContainer >
                         <br/>
                         <FormControl required>
