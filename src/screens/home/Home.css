@@ -15,3 +15,30 @@
 ::-webkit-scrollbar-thumb:hover {
   background: grey;
 }
+
+.allMoviesGrid{
+    width : 65%;
+    /* margin : 20px; */
+}
+
+.catalogContainer{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    padding-top: 20px;
+    justify-content: space-evenly;
+}
+
+.searchForm{
+    margin-left : 20px;
+    margin-right: 20px;
+    height: 100%;
+    /* box-shadow: 4px 7px 10px red; */
+
+}
+
+.searchCard{
+  display : flex;
+  flex-direction: column;
+  width : 400px;
+}
