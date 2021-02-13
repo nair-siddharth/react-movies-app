@@ -104,7 +104,7 @@ class Home extends Component {
                     {moviesData.map(movie => (
                         <GridListTile key={movie.id}  onClick = {() => this.movieClickHandler(movie.id)}  className = 'movieTile'>
                             <img src={movie.poster_url} alt={movie.title} />
-                            <GridListTileBar title={movie.title} subtitle = {<span>Released on {new Date(movie.release_date).toDateString()}</span>}/>
+                            <GridListTileBar className = 'tileBar' title={movie.title} subtitle = {<span>Released on {new Date(movie.release_date).toDateString()}</span>}/>
                         </GridListTile>
                     ))}
                 </GridList>
@@ -118,7 +118,7 @@ class Home extends Component {
 
                                 <GridListTile key={movie.id} onClick = {() => this.movieClickHandler(movie.id)} className = 'movieTile'>
                                     <img src={movie.poster_url} alt={movie.title} />
-                                    <GridListTileBar title={movie.title} subtitle = {<span>Released on {new Date(movie.release_date).toDateString()}</span>}/>
+                                    <GridListTileBar className = 'tileBar' title={movie.title} subtitle = {<span>Released on {new Date(movie.release_date).toDateString()}</span>}/>
                                 </GridListTile>
                             ))}
                         </GridList>

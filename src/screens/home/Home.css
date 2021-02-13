@@ -46,3 +46,9 @@
 .movieTile:hover{
   cursor: pointer;
 }
+
+.tileBar:hover{
+  font-weight: bold;
+  height : 100px;
+}
+
