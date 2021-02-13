@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './Home.css';
 import Header from '../../common/header/Header';
 import { withStyles } from '@material-ui/core/styles';
-
-
+import ReactDOM from 'react-dom';
+import Details from '../../screens/details/Details';
 import moviesData from '../../assets/MovieData';
 import genres from '../../assets/genres';
 import artists from '../../assets/artists';
@@ -29,6 +29,7 @@ import { MenuItem } from '@material-ui/core';
 import { FormControlLabel } from '@material-ui/core';
 import { Checkbox } from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
+import Button from '@material-ui/core/Button';
 // import { CheckBoxOutlineBlankIcon } from '@material-ui/icon';
 // import { CheckBoxIcon } from '@material-ui/icons';
 
@@ -85,6 +86,10 @@ class Home extends Component {
         this.setState({ artists: e.target.value });
     }
 
+    movieClickHandler = (movieId) => {
+        ReactDOM.render(<Details movieId = {movieId}/>, document.getElementById('root'));
+    }
+
 
     render() {
         const { classes } = this.props;
@@ -97,9 +102,9 @@ class Home extends Component {
                 {/*Upcoming movies*/}
                 <GridList className={classes.gridListUpcomingMovies} cols={5} cellHeight={'auto'} spacing={1}>
                     {moviesData.map(movie => (
-                        <GridListTile key={movie.id}>
+                        <GridListTile key={movie.id}  onClick = {() => this.movieClickHandler(movie.id)}  className = 'movieTile'>
                             <img src={movie.poster_url} alt={movie.title} />
-                            <GridListTileBar title={movie.title} />
+                            <GridListTileBar title={movie.title} subtitle = {<span>Released on {new Date(movie.release_date).toDateString()}</span>}/>
                         </GridListTile>
                     ))}
                 </GridList>
@@ -111,9 +116,9 @@ class Home extends Component {
                         <GridList cols={3} cellHeight={'auto'} spacing={35}>
                             {moviesData.map(movie => (
 
-                                <GridListTile key={movie.id}>
+                                <GridListTile key={movie.id} onClick = {() => this.movieClickHandler(movie.id)} className = 'movieTile'>
                                     <img src={movie.poster_url} alt={movie.title} />
-                                    <GridListTileBar title={movie.title} />
+                                    <GridListTileBar title={movie.title} subtitle = {<span>Released on {new Date(movie.release_date).toDateString()}</span>}/>
                                 </GridListTile>
                             ))}
                         </GridList>
@@ -186,7 +191,13 @@ class Home extends Component {
                                     <TextField id = 'releaseDateTo' label = 'Release date to' type = 'date' defaultValue = ''
                                     InputLabelProps = {{shrink:true}}/>
                                 </FormControl>
-
+                                
+                                <br /><br />
+                                <FormControl className={classes.formControl}>
+                                    <Button variant="contained" color="primary">
+                                        Show results
+                                    </Button>
+                                </FormControl>
 
                         </CardContent>
                     </Card>
