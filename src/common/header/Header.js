@@ -235,14 +235,14 @@ class Header extends Component {
                          <div className='homeBtn'>
                              <Button color="primary" variant="contained" onClick={this.homeNavHandler}>Home</Button>
                          </div>
-                         : ".."   
+                         : "."   
                         }
 
                         {this.props.bookShowBtn === true ? 
                             <div className='bookShowBtn'>
                                 <Button color="primary" variant="contained" onClick={this.bookShowHandler}>Book Show</Button>
                             </div>
-                            : ".."
+                            : "."
                         }
                         <div>
                             <Button color="default" variant="contained" onClick={this.showModalHandler}>Login</Button>

@@ -47,8 +47,11 @@
   cursor: pointer;
 }
 
-.tileBar:hover{
-  font-weight: bold;
-  height : 100px;
+.tileBar{
+  transition: height 0.3s, font-weight .2s;
 }
 
+.tileBar:hover{
+  height : 100px;
+  font-weight: bold;
+}

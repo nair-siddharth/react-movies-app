@@ -77,7 +77,7 @@ class Details extends Component {
     }
 
     render() {
-        console.log('selectedMovieID = ' +localStorage.getItem('selectedMovieID'));
+        console.log('selectedMovieID = ' + localStorage.getItem('selectedMovieID'));
         let movie = this.state.movie;
         const opts = {
             height: '300',
@@ -88,11 +88,11 @@ class Details extends Component {
         }
         return (
             <div className="details">
-                <Header bookShowBtn = {true}/>
+                <Header bookShowBtn={true} homeBtn={true} />
                 <div className="back">
-                    <Typography onClick={this.backToHomeHandler}>
-                        &#60; Back to Home
-                        </Typography>
+                    {/* <Typography onClick={this.backToHomeHandler}>
+                            &#60; Back to Home
+                            </Typography> */}
                 </div>
                 <div className="flex-containerDetails">
                     <div className="leftDetails">

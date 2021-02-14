@@ -1,0 +1,49 @@
+.bookingForm{
+    margin-left : 20px;
+    margin-right: 20px;
+    height: 100%;
+    /* box-shadow: 4px 7px 10px red; */
+
+}
+
+.bookingCard{
+  display : flex;
+  flex-direction: column;
+  width : 400px;
+}
+
+.bookShow {
+    text-align: center;
+    margin-top: 16px;
+}
+
+.back {
+    cursor: pointer;
+}
+
+.cardStyle {
+    width: 280px;
+    padding: 32px 64px 32px 64px;
+    margin: auto;
+    text-align: left;
+}
+
+.formControl {
+    width: 240px;
+}
+
+.marginTop16 {
+    margin-top: 16px;
+}
+
+.dispNone {
+    display: none;
+}
+
+.dispBlock {
+    display: block;
+}
+
+.red {
+    color: red;
+}
