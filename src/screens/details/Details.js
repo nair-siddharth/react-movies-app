@@ -77,6 +77,7 @@ class Details extends Component {
     }
 
     render() {
+        console.log('selectedMovieID = ' +localStorage.getItem('selectedMovieID'));
         let movie = this.state.movie;
         const opts = {
             height: '300',
@@ -87,7 +88,7 @@ class Details extends Component {
         }
         return (
             <div className="details">
-                <Header />
+                <Header bookShowBtn = {true}/>
                 <div className="back">
                     <Typography onClick={this.backToHomeHandler}>
                         &#60; Back to Home

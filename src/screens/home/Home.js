@@ -50,7 +50,7 @@ const styles = theme => ({
         flexWrap: 'nowrap',
         transform: 'translateZ(0)',
         width: '100%',
-        height: '40vh'
+        height: 'auto'
     },
     formControl: {
         margin: 5,//theme.spacing(5),
@@ -87,6 +87,7 @@ class Home extends Component {
     }
 
     movieClickHandler = (movieId) => {
+        localStorage.setItem("selectedMovieID",movieId);
         ReactDOM.render(<Details movieId = {movieId}/>, document.getElementById('root'));
     }
 

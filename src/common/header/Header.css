@@ -9,6 +9,20 @@
     padding-right: 30px;
 }
 
+.HeaderBtns{
+   display: flex;
+   width: 15vw;
+   justify-content: space-between;
+   text-align: right;
+}
+
+.bookShowBtn1{
+   display: none;
+}
+
+Button{
+   margin:10px;
+}
 
 .appLogo {
     height: 40px;

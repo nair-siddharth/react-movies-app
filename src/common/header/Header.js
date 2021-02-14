@@ -12,6 +12,11 @@ import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
 import { Typography } from '@material-ui/core';
 import { FormHelperText } from '@material-ui/core';
+import ReactDOM from 'react-dom';
+import BookShow from '../../screens/bookshow/BookShow';
+import Home from '../../screens/home/Home';
+
+
 
 import PropTypes from 'prop-types'; // This throws a warning if a validation put on a section is not followed. 
 // Here, we wil put a requirement of ensuring TabContainer has children
@@ -53,6 +58,8 @@ class Header extends Component {
             emailReg: '',
             passwordReg: '',
             confirmpasswordReg: '',
+
+
 
         };
     }
@@ -206,14 +213,42 @@ class Header extends Component {
         }
     }
 
+    bookShowHandler = () => {
+        console.log('book show');
+        ReactDOM.render(<BookShow movieName = 'Inception'/>, document.getElementById('root'));
+    }
 
+    homeNavHandler = () => {
+        ReactDOM.render(<Home />, document.getElementById('root'));
+    }
 
     render() {
         return (
             <div>
                 <header className='Header'>
                     <img src={logo} className='appLogo' alt='play'></img>
-                    <Button color="default" variant="contained" onClick={this.showModalHandler}>Login</Button>
+                    <div className  = 'HeaderBtns'>
+                        
+
+                        {
+                         this.props.homeBtn === true ? 
+                         <div className='homeBtn'>
+                             <Button color="primary" variant="contained" onClick={this.homeNavHandler}>Home</Button>
+                         </div>
+                         : ".."   
+                        }
+
+                        {this.props.bookShowBtn === true ? 
+                            <div className='bookShowBtn'>
+                                <Button color="primary" variant="contained" onClick={this.bookShowHandler}>Book Show</Button>
+                            </div>
+                            : ".."
+                        }
+                        <div>
+                            <Button color="default" variant="contained" onClick={this.showModalHandler}>Login</Button>
+                        </div>
+                    </div>
+                    
                 </header>
 
                 <Modal className='loginModal'
